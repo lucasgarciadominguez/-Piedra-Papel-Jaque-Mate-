@@ -19,5 +19,16 @@ public class MovePiece : MonoBehaviour
             eatPiece.CheckIfCanEat( actualTile,  actualPiece,  newSelectedTile,newPosition);
             //MoveToNewPosition(actualTile, actualPiece, newSelectedTile, newPosition);
         }
+        if (actualPiece.GetComponent<Piece>().ReturnType()==TypePiece.Pawn) //selects his first move
+        {
+            Debug.Log("Its a pawn");
+            if (actualPiece.GetComponent<Piece>().ReturnIsHisFirstMove())
+            {
+                Debug.Log("Its his first move");
+
+                actualPiece.GetComponent<Piece>().ChangeFirstMove();
+
+            }
+        }
     }
 }

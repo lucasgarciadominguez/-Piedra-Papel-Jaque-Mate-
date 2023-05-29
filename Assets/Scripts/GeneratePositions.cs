@@ -223,16 +223,24 @@ public static class GeneratePositions
                 }
                 return positions;
             case TypePiece.Pawn:
-                if (team==Team.One&&position==OrientationPosition.Top)
+                if (team==Team.One&&position==OrientationPosition.TopFirstMove)
                 {
                     positions.Add(new Vector2Int(0, 1));
                     positions.Add(new Vector2Int(0, 2));
 
                 }
-                else if (team == Team.Two && position == OrientationPosition.Bottom)
+                else if (team == Team.Two && position == OrientationPosition.BottomFirstMove)
                 {
                     positions.Add(new Vector2Int(0, -1));
                     positions.Add(new Vector2Int(0, -2));
+                }
+                if (team == Team.One && position == OrientationPosition.Top)
+                {
+                    positions.Add(new Vector2Int(0, 1));
+                }
+                else if (team == Team.Two && position == OrientationPosition.Bottom)
+                {
+                    positions.Add(new Vector2Int(0, -1));
                 }
                 else if (team == Team.One && position == OrientationPosition.PawnEat)
                 {

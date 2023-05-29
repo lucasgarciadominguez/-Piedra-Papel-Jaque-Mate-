@@ -18,7 +18,7 @@ public enum Team
 }
 public enum OrientationPosition
 {
-    None,PawnEat,Knight,Left, Right, Top, Bottom, TopLeft, BottomLeft, TopRight, BottomRight
+    None,PawnEat,Knight,Left, Right, Top,TopFirstMove, Bottom,BottomFirstMove, TopLeft, BottomLeft, TopRight, BottomRight
 }
 public class Piece : MonoBehaviour
 {
@@ -27,17 +27,21 @@ public class Piece : MonoBehaviour
     [SerializeField]
     Team team;
     public bool canBeEaten { private get; set; }
-     public List<Vector2Int> possiblePositionsPawnEat = new List<Vector2Int>();
-    public List<Vector2Int> possiblePositionsKnight = new List<Vector2Int>();
-     public List<Vector2Int> possiblePositionsLeft= new List<Vector2Int>();
-     public List<Vector2Int> possiblePositionsRight = new List<Vector2Int>();
-     public List<Vector2Int> possiblePositionsTop = new List<Vector2Int>();
-     public List<Vector2Int> possiblePositionsBottom = new List<Vector2Int>();
-     public List<Vector2Int> possiblePositionsTopLeft = new List<Vector2Int>();
-     public List<Vector2Int> possiblePositionsBottomLeft = new List<Vector2Int>();
-     public List<Vector2Int> possiblePositionsBottomTopRight = new List<Vector2Int>();
-     public List<Vector2Int> possiblePositionsBottomRight = new List<Vector2Int>();
+      List<Vector2Int> possiblePositionsPawnEat = new List<Vector2Int>();
+     List<Vector2Int> possiblePositionsKnight = new List<Vector2Int>();
+      List<Vector2Int> possiblePositionsLeft= new List<Vector2Int>();
+     List<Vector2Int> possiblePositionsRight = new List<Vector2Int>();
+     List<Vector2Int> possiblePositionsTop = new List<Vector2Int>();
+     List<Vector2Int> possiblePositionsBottom = new List<Vector2Int>();
+    List<Vector2Int> possiblePositionsTopFirstMove = new List<Vector2Int>();
+    List<Vector2Int> possiblePositionsBottomFirstMove = new List<Vector2Int>();
+    List<Vector2Int> possiblePositionsTopLeft = new List<Vector2Int>();
+     List<Vector2Int> possiblePositionsBottomLeft = new List<Vector2Int>();
+     List<Vector2Int> possiblePositionsBottomTopRight = new List<Vector2Int>();
+     List<Vector2Int> possiblePositionsBottomRight = new List<Vector2Int>();
     Dictionary<OrientationPosition,List<Vector2Int>> orientationPositions;
+    public bool isHisFirstMove { private get; set; }=true;
+    bool control=false;
     private void Start()
     {
         canBeEaten= false;
@@ -82,6 +86,8 @@ public class Piece : MonoBehaviour
                 orientationPositions.Add(OrientationPosition.BottomLeft, possiblePositionsBottomLeft = GeneratePositions.GenerateNewPositions(type, team, OrientationPosition.BottomLeft));
                 break;
             case TypePiece.Pawn:
+                orientationPositions.Add(OrientationPosition.BottomFirstMove, possiblePositionsBottomFirstMove = GeneratePositions.GenerateNewPositions(type, team, OrientationPosition.BottomFirstMove));
+                orientationPositions.Add(OrientationPosition.TopFirstMove, possiblePositionsTopFirstMove = GeneratePositions.GenerateNewPositions(type, team, OrientationPosition.TopFirstMove));
                 orientationPositions.Add(OrientationPosition.Bottom, possiblePositionsBottom = GeneratePositions.GenerateNewPositions(type, team, OrientationPosition.Bottom));
                 orientationPositions.Add(OrientationPosition.Top, possiblePositionsTop = GeneratePositions.GenerateNewPositions(type, team, OrientationPosition.Top));
                 orientationPositions.Add(OrientationPosition.PawnEat, possiblePositionsPawnEat = GeneratePositions.GenerateNewPositions(type, team, OrientationPosition.PawnEat));
@@ -103,9 +109,20 @@ public class Piece : MonoBehaviour
     {
         return team;
     }
+    public bool ReturnIsHisFirstMove()
+    {
+
+        return isHisFirstMove;
+    }
     public Dictionary<OrientationPosition, List<Vector2Int>> ReturnPossiblePositions()
     {
 
         return orientationPositions;
+    }
+    public void ChangeFirstMove()
+    {
+        if (!control)
+            control = true;
+            isHisFirstMove = false;
     }
 }

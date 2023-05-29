@@ -25,8 +25,9 @@ public class ShowMovements : MonoBehaviour
         {
             if (selectedTile.currentPiece.GetComponent<Piece>().ReturnTeam()==manager.TeamTurn)
             {
+                bool isHisFirstMove = selectedTile.currentPiece.GetComponent<Piece>().ReturnIsHisFirstMove();
                 selectedTile.ChangeSprite(cellSelectedSprite);
-                CheckIfCanMove(selectedTile);
+                CheckIfCanMove(selectedTile,isHisFirstMove);
 
 
                 HighLightsPosiblePositions();
@@ -45,7 +46,7 @@ public class ShowMovements : MonoBehaviour
         }
         possibleCells.Clear();
     }
-    public void CheckIfCanMove(Cell selectedTile)
+    public void CheckIfCanMove(Cell selectedTile,bool isHisFirstMove)
     {
         TypePiece pieceType = selectedTile.currentPiece.GetComponent<Piece>().ReturnType();
         switch (pieceType)
@@ -98,8 +99,16 @@ public class ShowMovements : MonoBehaviour
                 break;
             case TypePiece.Pawn:
                 Dictionary<OrientationPosition, List<Vector2Int>> listsPossiblePositionsPawn = selectedTile.currentPiece.GetComponent<Piece>().ReturnPossiblePositions();
-                UnlockTheMovements(listsPossiblePositionsPawn[OrientationPosition.Top], OrientationPosition.Top,selectedTile);
-                UnlockTheMovements(listsPossiblePositionsPawn[OrientationPosition.Bottom], OrientationPosition.Bottom, selectedTile);
+                if (isHisFirstMove)
+                {
+                    UnlockTheMovements(listsPossiblePositionsPawn[OrientationPosition.TopFirstMove], OrientationPosition.TopFirstMove, selectedTile);
+                    UnlockTheMovements(listsPossiblePositionsPawn[OrientationPosition.BottomFirstMove], OrientationPosition.BottomFirstMove, selectedTile);
+                }
+                else
+                {
+                    UnlockTheMovements(listsPossiblePositionsPawn[OrientationPosition.Top], OrientationPosition.Top, selectedTile);
+                    UnlockTheMovements(listsPossiblePositionsPawn[OrientationPosition.Bottom], OrientationPosition.Bottom, selectedTile);
+                }
                 UnlockTheMovements(listsPossiblePositionsPawn[OrientationPosition.PawnEat], OrientationPosition.PawnEat, selectedTile);
                 break;
             default:
@@ -124,7 +133,6 @@ public class ShowMovements : MonoBehaviour
                     if (CheckIfItsNotAlly(x, y, orientation))
                     {
                         possibleCells.Add(board.grid[x, y]);
-
                     }
                     else
                     {
@@ -134,7 +142,6 @@ public class ShowMovements : MonoBehaviour
                         else
                         {
                             continueExploringOrientation = false;
-
                         }
                     }
                 }
@@ -142,12 +149,10 @@ public class ShowMovements : MonoBehaviour
                 {
                     if (orientation==OrientationPosition.Knight|| orientation == OrientationPosition.PawnEat)
                     {
-
                     }
                     else
                     {
                         continueExploringOrientation = false;
-
                     }
 
 

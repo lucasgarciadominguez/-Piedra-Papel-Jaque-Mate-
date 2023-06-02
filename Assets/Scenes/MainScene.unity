@@ -1444,8 +1444,6 @@ MonoBehaviour:
   player1Piece: {fileID: 1361989948}
   player2Piece: {fileID: 1874639739}
   selectTurns: {fileID: 927301024}
-  animatorPlayer1Cards: {fileID: 0}
-  animatorPlayer2Cards: {fileID: 0}
 --- !u!4 &679064741
 Transform:
   m_ObjectHideFlags: 0
@@ -1477,7 +1475,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &709558900
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1516,9 +1514,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 514f26090d214144f93c4d0caa284702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animatorPanelBGRandomMode: {fileID: 620168806}
+  animatorDivisionLineRandomMode: {fileID: 138704213}
+  VSRandomMode: {fileID: 720726278}
   animatorPlayer1Cards: {fileID: 487837543}
   animatorPlayer2Cards: {fileID: 1234961042}
+  animatorPlayer1Piece: {fileID: 1361989950}
+  animatorPlayer2Piece: {fileID: 1874639741}
   managerUI: {fileID: 679064740}
+  choicePlayer1: 0
+  choicePlayer2: 0
+  eatPiece: {fileID: 0}
 --- !u!1 &720726274
 GameObject:
   m_ObjectHideFlags: 0

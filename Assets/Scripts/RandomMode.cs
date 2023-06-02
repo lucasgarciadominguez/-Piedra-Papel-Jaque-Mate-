@@ -12,14 +12,35 @@ public enum RandomChoices
 public class RandomMode : MonoBehaviour
 {
     [SerializeField]
+    Animator animatorPanelBGRandomMode;
+    [SerializeField]
+    Animator animatorDivisionLineRandomMode;
+    [SerializeField]
+    Animator VSRandomMode;
+
+
+    [SerializeField]
     Animator animatorPlayer1Cards;
     [SerializeField]
     Animator animatorPlayer2Cards;
     [SerializeField]
-    UIManager managerUI;
-    RandomChoices choicePlayer1= RandomChoices.None;
-    RandomChoices choicePlayer2 = RandomChoices.None;
+    Animator animatorPlayer1Piece;
+    [SerializeField]
+    Animator animatorPlayer2Piece;
 
+
+    [SerializeField]
+    UIManager managerUI;
+    [SerializeField]
+    RandomChoices choicePlayer1 = RandomChoices.None;
+    [SerializeField]
+    RandomChoices choicePlayer2 = RandomChoices.None;
+    [SerializeField]
+    EatPiece eatPiece;
+    private void Awake()
+    {
+        this.gameObject.SetActive(false);   
+    }
     public void StartRandomMode(GameObject actualTile, Cell otherTile,Team teamTurn)
     {
         Sprite piece = actualTile.GetComponent<SpriteRenderer>().sprite;
@@ -34,11 +55,11 @@ public class RandomMode : MonoBehaviour
         {
             if (choice==0)
             {
-                choicePlayer1= RandomChoices.Paper;
+                choicePlayer1= RandomChoices.Rock;
             }
             else if (choice == 1)
             {
-                choicePlayer1 = RandomChoices.Rock;
+                choicePlayer1 = RandomChoices.Paper;
 
             }
             else if (choice == 2)
@@ -50,11 +71,11 @@ public class RandomMode : MonoBehaviour
         {
             if (choice == 0)
             {
-                choicePlayer2 = RandomChoices.Paper;
+                choicePlayer2 = RandomChoices.Rock;
             }
             else if (choice == 1)
             {
-                choicePlayer2 = RandomChoices.Rock;
+                choicePlayer2 = RandomChoices.Paper;
 
             }
             else if (choice == 2)
@@ -66,9 +87,34 @@ public class RandomMode : MonoBehaviour
     }
     void ChangeTurnRandomMode()
     {
-        managerUI.SelectTurns(true);
-        animatorPlayer1Cards.SetTrigger("ChangeTurnPlayer1");
-        animatorPlayer2Cards.SetTrigger("ChangeTurnPlayer2");
+        if (choicePlayer1==RandomChoices.None|| choicePlayer2 == RandomChoices.None)
+        {
+            managerUI.SelectTurns(true);
+            animatorPlayer1Cards.SetTrigger("ChangeTurnPlayer1");
+            animatorPlayer2Cards.SetTrigger("ChangeTurnPlayer2");
+            animatorPlayer1Piece.SetTrigger("ChangeTurnPlayer1Piece");
+            animatorPlayer2Piece.SetTrigger("ChangeTurnPlayer2Piece");
+        }
+        else
+        {
+            FinishRandomMode();
+        }
 
+
+    }
+    void FinishRandomMode()
+    {
+        animatorPanelBGRandomMode.SetTrigger("Disable");
+        animatorDivisionLineRandomMode.SetTrigger("Disable");
+        VSRandomMode.SetTrigger("Disable");
+        animatorPlayer1Cards.SetTrigger("Disable");
+        animatorPlayer2Cards.SetTrigger("Disable");
+        animatorPlayer1Piece.SetTrigger("Disable");
+        animatorPlayer2Piece.SetTrigger("Disable");
+
+        animatorPlayer1Cards.SetBool("ChangeTurnAppear",false);
+        animatorPlayer2Cards.SetBool("ChangeTurnAppear", false);
+        animatorPlayer1Piece.SetBool("ChangeTurnAppear", false);
+        animatorPlayer2Piece.SetBool("ChangeTurnAppear", false);
     }
 }

@@ -19,14 +19,11 @@ public class MovePiece : MonoBehaviour
             eatPiece.CheckIfCanEat( actualTile,  actualPiece,  newSelectedTile,newPosition);
             //MoveToNewPosition(actualTile, actualPiece, newSelectedTile, newPosition);
         }
-        if (actualPiece.GetComponent<Piece>().ReturnType()==TypePiece.Pawn) //selects his first move
+        if (actualPiece.GetComponent<Piece>().ReturnType()==TypePiece.Pawn) //selects only the pawn
         {
-            Debug.Log("Its a pawn");
-            if (actualPiece.GetComponent<Piece>().ReturnIsHisFirstMove())
+            if (actualPiece.GetComponent<Piece>().ReturnIsHisFirstMove())   //if its his first move
             {
-                Debug.Log("Its his first move");
-
-                actualPiece.GetComponent<Piece>().ChangeFirstMove();
+                actualPiece.GetComponent<Piece>().ChangeFirstMove();    //then disable the two cells move for the pawns
 
             }
         }

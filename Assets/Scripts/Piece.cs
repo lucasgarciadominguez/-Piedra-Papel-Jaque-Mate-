@@ -45,7 +45,7 @@ public class Piece : MonoBehaviour
     private void Start()
     {
         canBeEaten= false;
-         orientationPositions=new Dictionary<OrientationPosition, List<Vector2Int>>();
+        orientationPositions=new Dictionary<OrientationPosition, List<Vector2Int>>();
         switch (type)
         {
             case TypePiece.None:

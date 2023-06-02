@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public bool isPlaying;
     [SerializeField]
     UIManager iManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +30,10 @@ public class GameManager : MonoBehaviour
         else
             TeamTurn = Team.One;
 
+    }
+    public void ShowsRandomMode()
+    {
+        iManager.EnableRandomMode();
     }
     public void EndGame()
     {

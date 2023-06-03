@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public bool isPlaying;
     [SerializeField]
     UIManager iManager;
+    [SerializeField]
+    RandomMode randomMode;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +35,7 @@ public class GameManager : MonoBehaviour
     }
     public void ShowsRandomMode()
     {
-        iManager.EnableRandomMode();
+        randomMode.EnableRandomMode();
     }
     public void EndGame()
     {

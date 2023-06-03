@@ -10,16 +10,16 @@ public class SelectTurns : MonoBehaviour
     GameObject TurnPiece2;
     public void ChangeTurns(bool changeTurns)
     {
-        if (!changeTurns)
-        {
-            TurnPiece1.SetActive(true);
-            TurnPiece2.SetActive(false);
+        //if (!changeTurns)
+        //{
+        //    TurnPiece1.SetActive(true);
+        //    TurnPiece2.SetActive(false);
 
-        }
-        else
-        {
-            TurnPiece1.SetActive(false);
-            TurnPiece2.SetActive(true);
-        }
+        //}
+        //else
+        //{
+        //    TurnPiece1.SetActive(false);
+        //    TurnPiece2.SetActive(true);
+        //}
     }
 }

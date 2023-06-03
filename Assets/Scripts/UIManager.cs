@@ -23,10 +23,7 @@ public class UIManager : MonoBehaviour
     {
         uiText.SetActive(true);
     }
-    public void EnableRandomMode()
-    {
-        randomMode.SetActive(true);
-    }
+
     public void PassInformationRandomMode(Sprite spritePlayer1, Sprite spritePlayer2)
     {
         player1Piece.sprite = spritePlayer1;

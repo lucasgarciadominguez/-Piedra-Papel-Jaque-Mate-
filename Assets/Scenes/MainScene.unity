@@ -149,7 +149,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 46884494}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.34788, y: 6.42, z: 0}
+  m_LocalPosition: {x: 6.133333, y: 6.42, z: 0}
   m_LocalScale: {x: 0.46445727, y: 0.46445727, z: 0.7448}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anchorType: 8
   anchorOffset: {x: -0.57, y: -2.11, z: 0}
-  realPosition: {x: 11.34788, y: 6.42, z: 0}
+  realPosition: {x: 6.133333, y: 6.42, z: 0}
 --- !u!212 &46884497
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -897,7 +897,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 428087809}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.91788, y: 3.53, z: 0}
+  m_LocalPosition: {x: 6.7033334, y: 3.53, z: 0}
   m_LocalScale: {x: 6.738, y: 6.738, z: 6.738}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -918,7 +918,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anchorType: 5
   anchorOffset: {x: 0, y: 0, z: 0}
-  realPosition: {x: 11.91788, y: 3.53, z: 0}
+  realPosition: {x: 6.7033334, y: 3.53, z: 0}
 --- !u!1 &461841047
 GameObject:
   m_ObjectHideFlags: 0
@@ -1525,6 +1525,8 @@ MonoBehaviour:
   choicePlayer1: 0
   choicePlayer2: 0
   eatPiece: {fileID: 935235331}
+  imagePlayer1Piece: {fileID: 1361989948}
+  imagePlayer2Piece: {fileID: 1874639739}
 --- !u!1 &720726274
 GameObject:
   m_ObjectHideFlags: 0
@@ -2153,7 +2155,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1012868987
@@ -2469,8 +2471,8 @@ Canvas:
   m_GameObject: {fileID: 1144906359}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -2479,7 +2481,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!224 &1144906363
 RectTransform:
@@ -3144,7 +3146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: d1938368276258b488fad79cd7c3f219, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -3152,7 +3154,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 16acd4b2192cc674297f428f31ea274c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7c61e79693d614f419f92f2d9d887758, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3876,7 +3878,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1865268072}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.1778803, y: 3.53, z: 0}
+  m_LocalPosition: {x: 0.036666393, y: 3.53, z: 0}
   m_LocalScale: {x: 6.738, y: 6.738, z: 6.738}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3897,7 +3899,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anchorType: 3
   anchorOffset: {x: 0, y: 0, z: 0}
-  realPosition: {x: -5.1778803, y: 3.53, z: 0}
+  realPosition: {x: 0.036666393, y: 3.53, z: 0}
 --- !u!1 &1874639737
 GameObject:
   m_ObjectHideFlags: 0
@@ -3949,7 +3951,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: f064c105ac7bd264b9efda8b7cc3daa4, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -3957,7 +3959,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 911f4c867786bfb41ba2e9e8a082ffe6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b53b36c1943a9fd4a80c9688fd15aea3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
